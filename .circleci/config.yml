@@ -55,7 +55,7 @@ workflows:
       # - node/test
       - deploy-job:
           requires:
-            - build-job
+            - build-and-test
           filters:
             branches:
               only: master
