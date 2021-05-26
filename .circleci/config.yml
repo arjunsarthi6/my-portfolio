@@ -34,19 +34,6 @@ jobs:
           name: Deploy Master to Firebase
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --non-interactive
 
-  deploy-job:
-    docker:
-      - image: cimg/base:stable
-    steps:
-    - node/install:
-          install-npm: true
-    - run:
-          name: npm install
-          command: npm install
-    - run:
-          name: Deploy Master to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
-
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
@@ -54,10 +41,7 @@ workflows:
   # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
   Profile-app-pipeline:
     jobs:
-      - build-and-test
-      - deploy-job:
-          requires:
-            - build-and-test
+      - build-and-test:
           filters:
             branches:
               only: master
