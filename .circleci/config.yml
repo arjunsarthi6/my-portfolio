@@ -33,7 +33,7 @@ jobs:
 
   deploy-job:
     docker:
-      - image: docker/arjun:version:1.0.0 
+      - image: sarthiarjun15/my-portfolio:portfolio
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
