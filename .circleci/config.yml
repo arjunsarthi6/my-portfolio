@@ -33,7 +33,7 @@ jobs:
 
   deploy-job:
     docker:
-      - image: cimg/node:15.1
+      - image: docker:stable-git
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
