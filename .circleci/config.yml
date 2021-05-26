@@ -35,6 +35,8 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+    - node/install:
+          install-npm: true
     - run:
           name: npm install
           command: npm install
